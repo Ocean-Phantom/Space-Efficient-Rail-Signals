@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2023.01.29
+  Changes:
+    - Change require("collision-mask-util") to require("__core__.lualib.collision-mask-util")
+    - Changed all_rails_collide() to all_prototypes_collide(), Fixed crash cause by nil values.
+    - Removed logging functions for less clutter in the log file
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2023.01.29
   Changes:
