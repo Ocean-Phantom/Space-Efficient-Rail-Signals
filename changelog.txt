@@ -1,8 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2023.01.29
+  Changes:
+    - Add Rail Signal Planner Dependency
+    - Add Realistic Electric Trains Dependency
+    - Remove Version Numbers on Dependencies
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2023.01.27
   Bugfixes:
     - Hotfix for compatibility with Space Rails from Space Exploration
+  Changes:
+    - Minor Title Change (removed hyphen for easier searching)
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2023.01.27

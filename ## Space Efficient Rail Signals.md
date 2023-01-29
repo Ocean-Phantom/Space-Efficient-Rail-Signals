@@ -2,9 +2,9 @@
 
 This mod changes the Collision Masks for all Rail Signals and Chain Signals to be independent of Rails. This allows freer placement, for those builds with low spacing, or converting between LHD and RHD when not otherwise possible.
 
-The mod should automatically detect any modded signals and signals in disguise and change their collision masks as well. Should also respect any tile transitions.
+The mod should automatically detect any modded signals and signals in disguise and change their collision masks as well. Should also respect any tile transitions. Due to it building new collision masks for the signals, the mod may not play nice if used with lots of mods that also change collision masks.
 
-Due to it building new collision masks for the signals, the mod may not play nice if used with lots of mods that also change collision masks.
+The [Rail Signal Planner](https://mods.factorio.com/mod/RailSignalPlanner) mod may be useful for automatic signal placement.
 
 If you find any bugs or mod compatibility issues, please report them.
 
