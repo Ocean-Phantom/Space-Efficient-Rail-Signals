@@ -48,7 +48,9 @@ local function edit_non_rail_segment()
     for _, prototype in pairs(prototypes) do
       local prototype_mask = cmu.get_mask(prototype)
       prototype.collision_mask = prototype_mask
-
+      if prototype.name == "railway_tunnel-portal_entry_signal" then
+        log("1")
+      end
       if prototype.type ~= "straight-rail" and prototype.type ~= "curved-rail" then
         if cmu.mask_contains_layer(prototype_mask, old_layer) then
           cmu.add_layer(prototype_mask, new_layer)
@@ -92,9 +94,11 @@ local function all_prototypes_collide()
     if t == true then
       log("All "..tostring(prototype_type).." collide")
     else
-      log("Error: "..tostring(prototype_type).." are not collidiing. Please report this to the mod author")
+      log("Error: "..tostring(prototype_type).." are not collidiing. Attempting to fix before repeating test. If this message appears twice in the log, please report this to the mod author")
+      return(t)
     end
   end
+  return true
 end
 
 get_all_collisions()
@@ -102,4 +106,18 @@ log("Layers to replace:"..serpent.block(colliding_signal_layers))
 copy_all_rails(data.raw, copy_of_rails)
 edit_non_rail_segment()
 copy_all_rails(copy_of_rails, data.raw)
+if all_prototypes_collide() == false then
+  --- this is a failsafe to catch cases where other mods add rail signals that do not collide with rails
+  --- and as a result end up not colliding with each other after edit_non_rail_segment
+  local new_layer = cmu.get_first_unused_layer()
+  for _, prototype_type in pairs({"rail-signal", "rail-chain-signal"}) do
+    for _, prototype in pairs(data.raw[prototype_type]) do
+      if not prototype.collision_mask then
+        prototype.collision_mask = cmu.get_mask(prototype)
+      end
+      local collision_mask = prototype.collision_mask
+      cmu.add_layer(collision_mask,new_layer)
+    end
+  end
+end
 all_prototypes_collide()

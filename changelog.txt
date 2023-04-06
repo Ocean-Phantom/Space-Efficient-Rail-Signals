@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2023.04.04
+  Bugfixes:
+    - fixed crash when loading mod with both Renai Transportation and railway tunnels
+    - added function to ensure all rail-signal collide after edits, as a failsafe against cases where mods add rail-signals that already don't collide with rail segments
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2023.01.29
   Changes:
